@@ -1,0 +1,184 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+body {
+    margin: 0;
+    color: #fff;
+    background-color: #24292E;
+}
+
+* {
+    font-family: Inter, sans-serif;
+    line-height: 100%;
+    box-sizing: border-box;
+}
+
+.wrapper {
+    position: relative;
+    width: 600px;
+    margin: 0 auto;
+    padding: 30px;
+    max-width: 100%;
+    text-align: center;
+}
+
+.game-selector-pack-break {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    font-weight: 900;
+    font-size: 30px;
+    padding: 50px 0 10px;
+}
+
+.game-selector-button {
+    position: relative;
+    display: inline-block;
+    padding: 7px 12px;
+    text-align: center;
+    margin: 2px;
+    cursor: pointer;
+    border: 0;
+    border-radius: 4px;
+    font-size: 20px;
+    font-weight: 700;
+    background-color: #0002;
+    color: #fff;
+}
+
+.media-title {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    font-weight: 900;
+    font-size: 40px;
+    padding: 10px 0 20px;
+}
+
+.media-row {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    border-bottom: 1px solid #fff3;
+    cursor: pointer;
+}
+
+.media-row:last-child {
+    border-bottom: 0;
+}
+
+.media-row.playing {
+    background-color: #2259;
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+}
+
+.media-button {
+    position: absolute;
+    display: inline-block;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 0;
+    cursor: pointer;
+    z-index: 2;
+    outline: 0;
+}
+
+.media-button::after {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -51%);
+    font-size: 16px;
+    color: #24292E;
+}
+
+.media-button.play::after {
+    content: "play_arrow";
+}
+
+.media-button.pause::after {
+    content: "stop";
+    color: #222445;
+}
+
+.media-button.loading::after {
+    content: "change_circle";
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: translate(-50%, -51%);
+    }
+    100% {
+        transform: translate(-50%, -51%) rotate(360deg);
+    }
+}
+
+.media-text {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    padding: 7px 7px 7px 30px;
+    text-align: left;
+    font-size: 14px;
+    word-wrap: break-word;
+}
+
+.scrolltotop {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background-color: #0002;
+    transform: rotate(-90deg);
+    padding: 10px;
+    font-size: 40px;
+    cursor: pointer;
+    border: 0;
+    color: #fff;
+    border-radius: 5px;
+}
