@@ -1,6 +1,6 @@
 var parseFlowchart = (d) => {
     var l = d.split("\n");
-    console.log(l);
+    //console.log(l);
     var getVariableString = (v) => {
         var regex = new RegExp(`public const ${v}:String = "(.+?)";`);
         if (!regex) return;
@@ -197,7 +197,9 @@ var showGame = (g) => {
         };
         var e = $("<div/>").addClass("media-row").appendTo(w).on("click", () => oc()).on("contextmenu", (e) => {
             e.preventDefault();
+            //console.log("<a href='talkshow/".concat(g.id, "/", m.audio, ".ogg' target='_blank'>talkshow/", g.id, "/", m.audio, ".ogg</a>"));
             var q = {
+                "Audio path": { t: "<a href='talkshow/".concat(g.id, "/", m.audio, ".ogg' target='_blank'>talkshow/", g.id, "/", m.audio, ".ogg</a>") },
                 "Audio ID": m.audio,
                 "Dict index": m.index,
                 "Talkshow duration": "".concat(m.duration, "s"),
@@ -206,7 +208,7 @@ var showGame = (g) => {
             };
             Swal.fire({
                 title: "Information",
-                html: "<span style='text-align: left; display: inline-block;'>".concat(Object.entries(q).map((y) => "<strong>".concat(y[0], ":</strong> ", y[1].replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"))).join("<br/>"), "</span>")
+                html: "<span style='text-align: left; display: inline-block;'>".concat(Object.entries(q).map((y) => "<strong>".concat(y[0], ":</strong> ", y[1] ? y[1].t || y[1].replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") : "none")).join("<br/>"), "</span>")
             });
         });
         var b = $("<button/>").addClass("media-button play").appendTo(e);
