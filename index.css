@@ -166,7 +166,8 @@ body {
     padding: 7px 7px 7px 30px;
     text-align: left;
     font-size: 14px;
-    word-wrap: break-word;
+    word-break: break-word;
+    white-space: pre-line;
 }
 
 .scrolltotop {

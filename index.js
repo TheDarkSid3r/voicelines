@@ -13,18 +13,18 @@ var parseFlowchart = (d) => {
     var mediaMatches = media.match(/\|([0-9]+)\|([0-9]+)\|([0-9]+)\|M,([0-9.]+)/g);
     if (!mediaMatches) throw new Error("no media matches");
     var dictSplit = dict.split("^");
-    var categoryRegex = /\[category=(.+?)\]/g;
+    var categoryRegex = /\[(category|categor|catgory|cateogory)=(.+?)(\]|})/g;
     var filterByProp = false;
     var filterOR = true;
     var mediaMatchesParsed = mediaMatches.map((m) => {
         var s = m.split("|");
         var index = s[3];
         var dictRaw = dictSplit[s[3]];
-        var dict = dictRaw.replace(/\\n/g, " ").replace(/\\t/g, "\t").replace(/\\/g, "").trim();
-        var dictClean = dict.replace(categoryRegex, "").trim();
+        var dict = dictRaw.replace(/\\n/g, "\n").replace(/\\t/g, "\t").replace(/\\/g, "").trim();
+        var dictClean = dict.replace(categoryRegex, "").replace(/\[volume=([0-9]+)\]/g, "").trim();
         var r = { audio: s[1], index, dict, dictClean, duration: parseFloat(m.split(",")[1]), dictRaw };
         var categoryMatch = dict.match(categoryRegex);
-        if (categoryMatch) r.category = categoryMatch[0].replace(categoryRegex, "$1");
+        if (categoryMatch) r.category = categoryMatch[0].replace(categoryRegex, "$2");
         return r;
     });
     //console.log(mediaMatchesParsed);
